@@ -6,8 +6,8 @@ import itertools
 from pathlib import Path
 from yattag import Doc, indent
 
-def main():
 
+def main():
     TOKEN = os.environ['NOTION']
 
     agents = {
@@ -112,9 +112,12 @@ def main():
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta http-equiv="refresh" content="0; url='https://gatecrash.notion.site/{page["id"]}'" />
                 <title>{page_name}</title>
+                <script type="text/javascript">
+                    window.location.href = "https://gatecrash.notion.site/{page["id"]}";
+                </script>
             </head>
             <body>
-                <p><a href="https://gatecrash.notion.site/{page["id"]}">Redirect</a></p>
+                <p><a href="https://gatecrash.notion.site/{page["id"]}">If you are not redirected automatically, click here.</a></p>
             </body>
         </html>
                         ''')
