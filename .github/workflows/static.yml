@@ -53,7 +53,7 @@ jobs:
       - name: Execute Python
         env:
           NOTION: ${{ secrets.NOTION }}
-        run: poetry run lineups.py
+        run: poetry run lineups
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
