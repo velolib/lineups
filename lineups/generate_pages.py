@@ -104,7 +104,7 @@ def main():
         page_side = str(props['Side']['select']['name']).casefold()
 
         page_path = Path('content', page_side, page_map, page_site, page_agents[0], get_valid_filename(page_name)).with_suffix('.html')
-        page_url = f'https://gatecrash.notion.site/{str(page["id"]).replace('-', '')}'
+        page_url = f'https://gatecrash.notion.site/{str(page["id"]).replace("-", "")}'
         html_page = textwrap.dedent(f'''<!DOCTYPE html>
         <html>
             <head>
