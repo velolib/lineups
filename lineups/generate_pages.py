@@ -104,20 +104,21 @@ def main():
         page_side = str(props['Side']['select']['name']).casefold()
 
         page_path = Path('content', page_side, page_map, page_site, page_agents[0], get_valid_filename(page_name)).with_suffix('.html')
+        page_url = f'https://gatecrash.notion.site/{str(page["id"]).replace('-', '')}'
         html_page = textwrap.dedent(f'''<!DOCTYPE html>
         <html>
             <head>
                 <meta charset="UTF-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <meta http-equiv="refresh" content="0; url='https://gatecrash.notion.site/{page["id"]}'" />
+                <meta http-equiv="refresh" content="0; url='{page_url}'" />
                 <title>{page_name}</title>
                 <script type="text/javascript">
-                    window.location.href = "https://gatecrash.notion.site/{page["id"]}";
+                    window.location.href = "{page_url}";
                 </script>
             </head>
             <body>
-                <p><a href="https://gatecrash.notion.site/{page["id"]}">If you are not redirected automatically, click here.</a></p>
+                <p><a href="{page_url}">If you are not redirected automatically, click</a></p>
             </body>
         </html>
                         ''')
