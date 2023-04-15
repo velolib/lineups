@@ -141,7 +141,7 @@ def main():
                 with tag('ul'):
                     for url_path in generated_paths:
                         with tag('li'):
-                            with tag('a', href=f'/lineups/{url_path}'):
+                            with tag('a', href=f'./{url_path}'):
                                 text(str(url_path))
 
         file.write(indent(doc.getvalue()))
